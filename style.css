@@ -1,0 +1,216 @@
+/*
+    -----------------------------------------------------
+    Global Styles & Reset
+    -----------------------------------------------------
+*/
+:root {
+    --primary-color: #20B2AA; /* Approximate deep teal/cyan for text */
+    --background-color: #000000; /* Black background */
+    --text-color: #FFFFFF; /* White text */
+    --font-family: 'Arimo', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #40E0D0; /* Lighter shade on hover */
+}
+
+/*
+    -----------------------------------------------------
+    Header & Navigation
+    -----------------------------------------------------
+*/
+header {
+    width: 100%;
+    padding: 20px 40px;
+    position: absolute; /* Allows content to flow underneath */
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; /* Push links to the right */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-left: 30px;
+}
+
+/*
+    -----------------------------------------------------
+    Footer & Social Links
+    -----------------------------------------------------
+*/
+footer {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between icons */
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 24px;
+    padding: 5px; /* Area for clicking */
+    transition: transform 0.2s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+/* Ensure embedded SVGs take up space */
+.social-links a svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+/*
+    -----------------------------------------------------
+    Homepage (index.html) Styles
+    -----------------------------------------------------
+*/
+.homepage {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Space for the header */
+}
+
+.logo-container {
+    /* Adjust these values to position the logo correctly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Example max size for the logo graphic */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.main-logo-graphic {
+    /* Adjust opacity and color if you use a full background image */
+    width: 100%;
+    height: auto;
+    opacity: 0.5; /* To match the muted look in the screenshot */
+}
+
+.domain-name {
+    font-family: var(--font-family);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: 2.5em; /* Adjust size as needed */
+    letter-spacing: 1px;
+    position: relative; /* If you want to position it specifically over the graphic */
+    margin-top: -80px; /* Pull it up closer to the graphic */
+}
+
+/*
+    -----------------------------------------------------
+    Contact Page (contact.html) Styles - Simple Layout
+    -----------------------------------------------------
+*/
+.contact-page-simple {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 80px 40px; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    text-align: center; /* Center text within the contact-info box */
+    padding: 20px;
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+}
+
+.contact-info p {
+    font-size: 1.5em; /* Increased size for prominence */
+    margin-bottom: 15px;
+}
+
+.contact-info p a {
+    color: var(--text-color); /* Make the email link white */
+    text-decoration: none; 
+}
+
+.contact-info p a:hover {
+    color: var(--primary-color); /* Teal highlight on hover */
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-page-simple {
+        padding-top: 100px;
+    }
+
+    .contact-info {
+        /* On small screens, let it take full width and center content */
+        max-width: 90%; 
+    }
+
+    .contact-info h2 {
+        font-size: 1.5em;
+    }
+    
+    .contact-info p {
+        font-size: 1.2em;
+    }
+
+    nav {
+        justify-content: center;
+    }
+    
+    .social-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
