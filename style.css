@@ -1,25 +1,26 @@
-/*
-    -----------------------------------------------------
-    Global Styles & Reset
-    -----------------------------------------------------
-*/
+/* Custom properties for easy color changing */
 :root {
-    --primary-color: #20B2AA; /* Approximate deep teal/cyan for text */
-    --background-color: #000000; /* Black background */
-    --text-color: #FFFFFF; /* White text */
-    --font-family: 'Arimo', sans-serif;
+    --primary-color: #4dc2c2; /* Teal color for links/icons/text */
+    --background-color: #000000; /* Pure black background */
+    --text-color: #ffffff; /* White text */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- Global & Body Styles --- */
 
 body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
+    /* FIX: Full screen background image settings */
+    background-image: url('Wallpaper.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; /* Keeps image still when scrolling */
+    background-color: var(--background-color); /* Fallback color */
+    
+    /* General site layout and typography */
+    font-family: 'Arimo', sans-serif;
     color: var(--text-color);
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -32,185 +33,150 @@ a {
 }
 
 a:hover {
-    color: #40E0D0; /* Lighter shade on hover */
+    color: #009999; /* Slightly darker teal on hover */
 }
 
-/*
-    -----------------------------------------------------
-    Header & Navigation
-    -----------------------------------------------------
-*/
+/* --- Header & Navigation --- */
+
 header {
     width: 100%;
-    padding: 20px 40px;
-    position: absolute; /* Allows content to flow underneath */
+    padding: 20px 0;
+    text-align: center;
+    position: fixed; /* Keeps nav visible at top */
     top: 0;
     left: 0;
     z-index: 10;
-}
-
-nav {
-    display: flex;
-    justify-content: flex-end; /* Push links to the right */
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
 }
 
 nav a {
-    color: var(--primary-color);
+    margin: 0 15px;
     font-weight: 700;
-    margin-left: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9em;
 }
 
-/*
-    -----------------------------------------------------
-    Footer & Social Links
-    -----------------------------------------------------
-*/
-footer {
-    width: 100%;
-    padding: 10px 0;
-    margin-top: auto; /* Pushes the footer to the bottom */
-}
+/* --- Main Content (Home Page Specific) --- */
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Spacing between icons */
-}
-
-.social-links a {
-    color: var(--primary-color);
-    font-size: 24px;
-    padding: 5px; /* Area for clicking */
-    transition: transform 0.2s;
-}
-
-.social-links a:hover {
-    transform: scale(1.1);
-}
-
-/* Ensure embedded SVGs take up space */
-.social-links a svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-}
-
-/*
-    -----------------------------------------------------
-    Homepage (index.html) Styles
-    -----------------------------------------------------
-*/
-.homepage {
-    flex-grow: 1;
+main.homepage {
+    /* Styles for centering content vertically */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 80px; /* Space for the header */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    padding: 80px 20px 50px 20px; /* Space for fixed header/footer */
 }
 
 .logo-container {
-    /* Adjust these values to position the logo correctly */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px; /* Example max size for the logo graphic */
-    height: auto;
-    margin-bottom: 20px;
+    text-align: center;
+    max-width: 90%;
 }
 
 .main-logo-graphic {
-    /* Adjust opacity and color if you use a full background image */
-    width: 100%;
+    /* Style the image placeholder */
+    max-width: 450px; /* Adjust size of the logo/image container */
     height: auto;
-    opacity: 0.5; /* To match the muted look in the screenshot */
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8; 
 }
 
-.domain-name {
-    font-family: var(--font-family);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--text-color);
-    font-size: 2.5em; /* Adjust size as needed */
-    letter-spacing: 1px;
-    position: relative; /* If you want to position it specifically over the graphic */
-    margin-top: -80px; /* Pull it up closer to the graphic */
-}
+/* --- Main Content (Contact Page Specific) --- */
 
-/*
-    -----------------------------------------------------
-    Contact Page (contact.html) Styles - Simple Layout
-    -----------------------------------------------------
-*/
-.contact-page-simple {
+main.contact-page {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    padding: 80px 40px; 
-    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px 5% 50px 5%; /* Top/Bottom padding */
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
-.contact-info {
-    text-align: center; /* Center text within the contact-info box */
+.contact-info, .contact-form-container {
     padding: 20px;
+    width: 45%;
 }
 
 .contact-info h2 {
     color: var(--primary-color);
-    text-transform: uppercase;
-    font-weight: 700;
     margin-bottom: 30px;
-    font-size: 1.8em;
-    letter-spacing: 1px;
+    font-size: 2em;
 }
 
 .contact-info p {
-    font-size: 1.5em; /* Increased size for prominence */
-    margin-bottom: 15px;
+    margin: 15px 0;
+    font-size: 1.1em;
 }
 
-.contact-info p a {
-    color: var(--text-color); /* Make the email link white */
-    text-decoration: none; 
+.contact-info svg {
+    margin-right: 10px;
 }
 
-.contact-info p a:hover {
-    color: var(--primary-color); /* Teal highlight on hover */
-    text-decoration: underline;
+.contact-form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-transform: uppercase;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .contact-page-simple {
-        padding-top: 100px;
-    }
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Slightly visible input background */
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 
-    .contact-info {
-        /* On small screens, let it take full width and center content */
-        max-width: 90%; 
-    }
+form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
 
-    .contact-info h2 {
-        font-size: 1.5em;
-    }
-    
-    .contact-info p {
-        font-size: 1.2em;
-    }
+form input[type="submit"] {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    nav {
-        justify-content: center;
-    }
-    
-    .social-links {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+form input[type="submit"]:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* --- Footer & Social Links --- */
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+.social-links svg {
+    fill: var(--primary-color);
+}
+
+.social-links a {
+    margin: 0 8px;
+    display: inline-block;
+}
+
+.social-links a:hover svg {
+    fill: #009999; 
 }
