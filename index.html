@@ -12,12 +12,15 @@
             box-sizing: border-box;
         }
 
-        /* Body Configuration - Default/Landscape Background Setup */
+        /* ------------------------------------------- */
+        /* Body Configuration - DEFAULT/Desktop Setup  */
+        /* This is the fallback for large screens.     */
+        /* ------------------------------------------- */
         body {
             /* Ensures the page takes up at least the full window height */
             min-height: 100vh;
             
-            /* DEFAULT BACKGROUND IMAGE (e.g., for Desktop and Landscape Mobile) */
+            /* DEFAULT BACKGROUND IMAGE (For Desktop and large tablets/laptops) */
             background-image: url('background.jpg');
             background-size: cover;      /* Scales image to cover entire screen */
             background-position: center; /* Centers the image */
@@ -55,7 +58,7 @@
 
         .contact-text {
             color: #ffffff;
-            font-size: 24px; /* Matches visual weight of 32px icons */
+            font-size: 24px; 
             text-decoration: none;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Drop shadow for contrast against bg */
             font-weight: 500;
@@ -96,14 +99,37 @@
         }
 
         /* ------------------------------------------- */
-        /* Responsive adjustments for mobile screens (Below 600px) */
+        /* 1. Mobile Portrait Mode Background (NEW)    */
+        /* Targets narrow screens (max-width: 600px) and vertical orientation. */
+        /* ------------------------------------------- */
+        @media (max-width: 600px) and (orientation: portrait) {
+            body {
+                /* SWITCHES BACKGROUND IMAGE FOR NARROW, VERTICAL SCREENS */
+                background-image: url('background-portrait.jpg');
+            }
+        }
+
+        /* ------------------------------------------- */
+        /* 2. Mobile Landscape Mode Background (NEW)   */
+        /* Targets narrow screens (max-width: 900px) and horizontal orientation. */
+        /* I'm using max-width 900px here to catch larger phones/small tablets in landscape */
+        /* ------------------------------------------- */
+        @media (max-width: 900px) and (orientation: landscape) {
+            body {
+                /* SWITCHES BACKGROUND IMAGE FOR NARROW, HORIZONTAL SCREENS */
+                background-image: url('background-landscape.jpg');
+            }
+        }
+
+        /* ------------------------------------------- */
+        /* General Responsive adjustments for mobile   */
         /* ------------------------------------------- */
         @media (max-width: 600px) {
             
-            /* STACKING CONTACT INFO (from previous update) */
+            /* STACKING CONTACT INFO */
             .contact-row {
                 flex-direction: column;
-                margin-bottom: 10px; /* Reduce bottom margin when stacked */
+                margin-bottom: 10px;
             }
             
             /* Give each half full width and add some vertical space */
@@ -119,18 +145,6 @@
             
             .social-row {
                 gap: 15px;
-            }
-        }
-        
-        /* ------------------------------------------- */
-        /* PORTRAIT MODE BACKGROUND SWITCH (NEW) */
-        /* This media query specifically targets phones in portrait orientation. */
-        /* ------------------------------------------- */
-        @media (max-width: 600px) and (orientation: portrait) {
-            body {
-                /* SWITCHES BACKGROUND IMAGE FOR NARROW, VERTICAL SCREENS */
-                /* Ensure you create a file named background-portrait.jpg! */
-                background-image: url('background-portrait.jpg');
             }
         }
     </style>
