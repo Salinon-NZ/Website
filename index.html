@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -19,45 +18,28 @@
 
         body {
             min-height: 100vh;
-            /* Background Configuration */
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            
-            /* Centering */
             display: flex;
             align-items: center;
             justify-content: center;
-            
-            /* FONT CHANGED TO ARIMO HERE */
             font-family: 'Arimo', sans-serif;
             padding: 20px;
         }
 
-        /* Responsive Backgrounds */
-        @media (max-width: 600px) and (orientation: portrait) {
-            body { background-image: url('background-portrait.jpg'); }
-        }
-        @media (max-width: 900px) and (orientation: landscape) {
-            body { background-image: url('background-landscape.jpg'); }
-        }
-
-        /* The Business Card Container */
+        /* Business Card Container - No Border */
         .business-card {
-            background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent background */
-            backdrop-filter: blur(20px);     /* Strong blur effect for legibility */
+            background: rgba(0, 0, 0, 0.4); 
+            backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            
-            /* BORDER REMOVED HERE */
-            /* border: 1px solid rgba(255, 255, 255, 0.2); */
-            
             border-radius: 24px;
             display: flex;
             max-width: 1000px; 
             width: 100%;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Stronger shadow for depth without border */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             overflow: hidden;
             animation: fadeIn 0.8s ease-out;
         }
@@ -67,21 +49,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Left Side: Logo (Large area) */
+        /* Left Side: Logo (Double Size ratio) */
         .card-logo {
             flex: 1.5; 
-            background: rgba(255, 255, 255, 0.03); /* Very subtle highlight on logo side */
+            background: rgba(255, 255, 255, 0.03);
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 40px;
-            /* Kept the divider line internally as it looks good, let me know if you want it gone too */
             border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .card-logo img {
             width: 100%;
-            max-width: 450px; /* Large size constraint */
+            max-width: 450px; 
             height: auto;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
         }
@@ -95,20 +76,21 @@
             justify-content: center;
         }
 
+        /* Name Style: Bold and 20px to match contact info */
         .name-header {
             color: #ffffff;
-            font-size: 52px;
-            font-weight: 700; /* Arimo Bold */
-            margin-bottom: 10px;
-            letter-spacing: -1px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: none;
         }
 
         .contact-item {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-size: 20px;
-            font-weight: 400; /* Arimo Regular */
-            margin-bottom: 12px;
+            font-weight: 400;
+            margin-bottom: 8px;
             display: block;
             transition: color 0.2s;
         }
@@ -117,7 +99,7 @@
             color: #ffffff;
         }
 
-        /* Social Icons Grid - 5 per row */
+        /* Social Icons Grid - 10 Icons */
         .social-grid {
             margin-top: 35px;
             display: grid;
@@ -145,23 +127,10 @@
 
         /* Mobile Adjustments */
         @media (max-width: 800px) {
-            .business-card {
-                flex-direction: column;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .card-logo {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 40px;
-            }
-            .card-info {
-                padding: 40px 20px;
-                align-items: center;
-            }
-            .social-grid {
-                justify-content: center;
-            }
+            .business-card { flex-direction: column; text-align: center; }
+            .card-logo { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .card-info { padding: 40px 20px; align-items: center; }
+            .social-grid { justify-content: center; }
         }
     </style>
 </head>
@@ -202,6 +171,12 @@
                 </a>
                 <a href="https://wa.me/64212773995" target="_blank" class="social-link" aria-label="WhatsApp">
                     <svg viewBox="0 0 32 32"><path d="M25.873,6.069c-2.619-2.623-6.103-4.067-9.814-4.069C8.411,2,2.186,8.224,2.184,15.874c-.001,2.446,.638,4.833,1.852,6.936l-1.969,7.19,7.355-1.929c2.026,1.106,4.308,1.688,6.63,1.689h.006c7.647,0,13.872-6.224,13.874-13.874,.001-3.708-1.44-7.193-4.06-9.815h0Zm-9.814,21.347h-.005c-2.069,0-4.099-.557-5.87-1.607l-.421-.25-4.365,1.145,1.165-4.256-.274-.436c-1.154-1.836-1.764-3.958-1.763-6.137,.003-6.358,5.176-11.531,11.537-11.531,3.08,.001,5.975,1.202,8.153,3.382,2.177,2.179,3.376,5.077,3.374,8.158-.003,6.359-5.176,11.532-11.532,11.532h0Zm6.325-8.636c-.347-.174-2.051-1.012-2.369-1.128-.318-.116-.549-.174-.78,.174-.231,.347-.895,1.128-1.098,1.359-.202,.232-.405,.26-.751,.086-.347-.174-1.464-.54-2.788-1.72-1.03-.919-1.726-2.054-1.929-2.402-.202-.347-.021-.535,.152-.707,.156-.156,.347-.405,.52-.607,.174-.202,.231-.347,.347-.578,.116-.232,.058-.434-.029-.607-.087-.174-.78-1.88-1.069-2.574-.281-.676-.567-.584-.78-.595-.202-.01-.433-.012-.665-.012s-.607,.086-.925,.434c-.318,.347-1.213,1.186-1.213,2.892s1.242,3.355,1.416,3.587c.174,.232,2.445,3.733,5.922,5.235,.827,.357,1.473,.571,1.977,.73,.83,.264,1.586,.227,2.183,.138,.666-.1,2.051-.839,2.34-1.649,.289-.81,.289-1.504,.202-1.649s-.318-.232-.665-.405h0Z" fill-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/salinon-co-nz/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <svg viewBox="0 0 32 32"><path d="M26.111,3H5.889c-1.595,0-2.889,1.293-2.889,2.889V26.111c0,1.595,1.293,2.889,2.889,2.889H26.111c1.595,0,2.889-1.293,2.889-2.889V5.889c0-1.595-1.293-2.889-2.889-2.889ZM10.861,25.389h-3.877V12.87h3.877v12.519Zm-1.957-14.158c-1.267,0-2.293-1.034-2.293-2.31s1.026-2.31,2.293-2.31,2.292,1.034,2.292,2.31-1.026,2.31-2.292,2.31Zm16.485,14.158h-3.858v-6.571c0-1.802-.685-2.809-2.111-2.809-1.551,0-2.362,1.048-2.362,2.809v6.571h-3.718V12.87h3.718v1.686s1.118-2.069,3.775-2.069,4.556,1.621,4.556,4.975v7.926Z" fill-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://youtube.com/@salinon_conz" target="_blank" class="social-link" aria-label="YouTube">
+                    <svg viewBox="0 0 32 32"><path d="M31.331,8.248c-.368-1.386-1.452-2.477-2.829-2.848-2.496-.673-12.502-.673-12.502-.673,0,0-10.007,0-12.502,.673-1.377,.37-2.461,1.462-2.829,2.848-.669,2.512-.669,7.752-.669,7.752,0,0,0,5.241,.669,7.752,.368,1.386,1.452,2.477,2.829,2.847,2.496,.673,12.502,.673,12.502,.673,0,0,10.007,0,12.502-.673,1.377-.37,2.461-1.462,2.829-2.847,.669-2.512,.669-7.752,.669-7.752,0,0,0-5.24-.669-7.752ZM12.727,20.758V11.242l8.364,4.758-8.364,4.758Z"></path></svg>
                 </a>
             </div>
         </div>
