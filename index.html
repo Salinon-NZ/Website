@@ -81,7 +81,7 @@
             font-size: 22px;
             font-weight: 700;
             font-style: italic;
-            margin-bottom: 12px; /* Default Desktop */
+            margin-bottom: 12px;
         }
 
         .contact-item {
@@ -89,7 +89,7 @@
             text-decoration: none;
             font-size: 20px;
             font-style: italic;
-            margin-bottom: 8px; /* Default Desktop */
+            margin-bottom: 8px;
             display: flex; 
             align-items: center;
             gap: 12px; 
@@ -103,10 +103,10 @@
         }
 
         .social-grid {
-            margin-top: 30px; /* Default Desktop */
+            margin-top: 30px;
             display: grid;
             grid-template-columns: repeat(5, 1fr); 
-            gap: 15px; /* Default Desktop */
+            gap: 15px;
             width: fit-content;
         }
 
@@ -118,44 +118,49 @@
             display: block;
         }
 
-        /* Portrait View (Phones) */
+        /* --- PORTRAIT VIEW (PHONES) ADJUSTMENTS --- */
         @media (max-width: 500px), (max-width: 950px) and (orientation: portrait) {
             .business-card {
                 flex-direction: column;
                 width: 100%;
                 max-width: 380px;
             }
+
+            .card-logo {
+                padding: 30px 20px 10px 20px; /* Reduced bottom padding to bring text closer */
+            }
+
+            .card-logo img {
+                transform: scale(1.2); /* Makes logo 20% larger */
+            }
+
             .card-info {
-                padding: 5px 30px;
-                justify-content: center; 
+                padding: 10px 30px 40px 30px; 
+                justify-content: flex-start; /* Moves text block higher toward logo */
                 align-items: center; 
             }
+
             .info-content-block {
                 align-items: flex-start; 
             }
         }
 
         /* Landscape Mobile View Adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-    .card-info { 
-        padding: 20px 40px 25px 40px; 
-        justify-content: flex-end;
-    }
-    .card-logo { padding: 20px; }
-    .business-card { max-width: 750px; width: 95%; }
+        @media (max-height: 500px) and (orientation: landscape) {
+            .card-info { 
+                padding: 20px 40px 25px 40px; 
+                justify-content: flex-end;
+            }
+            .card-logo { padding: 20px; }
+            .business-card { max-width: 750px; width: 95%; }
 
-    .name-header { 
-        margin-bottom: 8px;  
-    }
-    .contact-item { 
-        margin-bottom: 3px;  
-    }
-    .social-grid { 
-        margin-top: 9px;    
-        /* First value is vertical (between rows), second is horizontal (between icons) */
-        gap: 9px 16px; 
-    }
-}
+            .name-header { margin-bottom: 8px; }
+            .contact-item { margin-bottom: 3px; }
+            .social-grid { 
+                margin-top: 9px;    
+                gap: 9px 16px; 
+            }
+        }
     </style>
 </head>
 <body>
