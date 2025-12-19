@@ -58,14 +58,17 @@
             width: 100%;
             max-width: 500px; 
             height: auto;
+            display: block; /* Removes tiny extra space at bottom of image */
         }
 
         .card-info {
             flex: 1;
-            padding: 120px 40px;
+            /* CHANGE 1: Switched padding to 40px all around so it matches the logo side */
+            padding: 40px; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            /* CHANGE 2: Changed 'center' to 'flex-end' to anchor text to the bottom */
+            justify-content: flex-end; 
             align-items: flex-start; 
         }
 
@@ -89,13 +92,13 @@
             font-size: 20px;
             font-style: italic;
             margin-bottom: 8px;
-            display: flex; /* Changed to flex to align icon + text */
+            display: flex; 
             align-items: center;
-            gap: 12px; /* Space between icon and text */
+            gap: 12px; 
         }
 
         .contact-icon {
-            fill: #ffffff; /* Matches your text color */
+            fill: #ffffff; 
             width: 20px;
             height: 20px;
             flex-shrink: 0;
@@ -114,6 +117,7 @@
             width: 32px;
             height: 32px;
             transition: transform 0.2s;
+            display: block; /* Helps with perfect alignment */
         }
 
         /* Portrait View (Phones) */
@@ -124,7 +128,9 @@
                 max-width: 380px;
             }
             .card-info {
-                padding: 20px 30px;
+                /* CHANGE 3: On mobile, we still want it centered, not at the bottom */
+                padding: 40px 30px;
+                justify-content: center; 
                 align-items: center; 
             }
             .info-content-block {
@@ -134,7 +140,10 @@
 
         /* Landscape Mobile View */
         @media (max-height: 500px) and (orientation: landscape) {
-            .card-info { padding: 80px 40px; }
+            .card-info { 
+                padding: 20px 40px; 
+                justify-content: flex-end; /* Keep anchored to bottom in small landscape */
+            }
             .card-logo { padding: 20px; }
             .social-grid { margin-top: 15px; }
             .business-card { max-width: 750px; width: 95%; }
