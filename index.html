@@ -136,26 +136,26 @@
         }
 
         /* Landscape Mobile View Adjustments */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .card-info { 
-                padding: 20px 40px 25px 40px; 
-                justify-content: flex-end;
-            }
-            .card-logo { padding: 20px; }
-            .business-card { max-width: 750px; width: 95%; }
+@media (max-height: 500px) and (orientation: landscape) {
+    .card-info { 
+        padding: 20px 40px 25px 40px; 
+        justify-content: flex-end;
+    }
+    .card-logo { padding: 20px; }
+    .business-card { max-width: 750px; width: 95%; }
 
-            /* Specific spacing reductions requested: */
-            .name-header { 
-                margin-bottom: 7px;  /* Reduced by 5px (was 12px) */
-            }
-            .contact-item { 
-                margin-bottom: 3px;  /* Reduced by 5px (was 8px) */
-            }
-            .social-grid { 
-                margin-top: 20px;    /* Reduced by 5px (was 30px) */
-                gap: 10px;           /* Reduced by 5px (was 15px) - affects row & column spacing */
-            }
-        }
+    .name-header { 
+        margin-bottom: 7px;  
+    }
+    .contact-item { 
+        margin-bottom: 3px;  
+    }
+    .social-grid { 
+        margin-top: 15px;    
+        /* First value is vertical (between rows), second is horizontal (between icons) */
+        gap: 10px 30px; 
+    }
+}
     </style>
 </head>
 <body>
