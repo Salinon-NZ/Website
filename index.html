@@ -32,16 +32,16 @@
             padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
 
-        /* --- DESKTOP BASE STYLES (Increased 50%) --- */
+        /* --- DESKTOP BASE STYLES --- */
         .business-card {
             background: rgba(0, 0, 0, 0.4); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 36px; /* Was 24px */
+            border-radius: 36px;
             display: flex;
-            max-width: 1500px; /* Was 1000px */
+            max-width: 1500px;
             width: 90%;
-            box-shadow: 0 45px 90px rgba(0,0,0,0.5); /* Increased shadow */
+            box-shadow: 0 45px 90px rgba(0,0,0,0.5);
             overflow: hidden;
             border: none;
         }
@@ -52,19 +52,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 60px; /* Was 40px */
+            padding: 60px;
         }
 
         .card-logo img {
             width: 100%;
-            max-width: 750px; /* Was 500px */
+            max-width: 750px;
             height: auto;
             display: block;
         }
 
         .card-info {
             flex: 1;
-            padding: 60px 60px 72px 60px; /* Was 40 40 48 40 */
+            padding: 60px 60px 72px 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end; 
@@ -79,47 +79,63 @@
 
         .name-header {
             color: #ffffff;
-            font-size: 33px; /* Was 22px */
+            font-size: 33px;
             font-weight: 700;
             font-style: italic;
-            margin-bottom: 18px; /* Was 12px */
+            margin-bottom: 18px;
         }
 
         .contact-item {
             color: #ffffff;
             text-decoration: none;
-            font-size: 30px; /* Was 20px */
+            font-size: 30px;
             font-style: italic;
-            margin-bottom: 12px; /* Was 8px */
+            margin-bottom: 12px;
             display: flex; 
             align-items: center;
-            gap: 18px; /* Was 12px */
+            gap: 18px;
+            transition: opacity 0.2s ease;
         }
 
         .contact-icon {
             fill: #ffffff; 
-            width: 30px; /* Was 20px */
-            height: 30px; /* Was 20px */
+            width: 30px;
+            height: 30px;
             flex-shrink: 0;
         }
 
         .social-grid {
-            margin-top: 45px; /* Was 30px */
+            margin-top: 45px;
             display: grid;
             grid-template-columns: repeat(5, 1fr); 
-            gap: 22px; /* Was 15px */
+            gap: 22px;
             width: fit-content;
         }
 
         .social-link svg {
             fill: #ffffff;
-            width: 48px; /* Was 32px */
-            height: 48px; /* Was 32px */
-            transition: transform 0.2s;
+            width: 48px;
+            height: 48px;
             display: block;
+            /* Smooth transition for the hover effect */
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
         }
 
-        /* --- PORTRAIT VIEW (PHONES) - UNCHANGED --- */
+        /* --- HOVER ANIMATIONS (DESKTOP ONLY) --- */
+        @media (hover: hover) {
+            .social-link:hover svg {
+                transform: scale(1.15); /* Grow 15% */
+                filter: drop-shadow(0 0 8px rgba(255,255,255,0.5)); /* Subtle glow */
+            }
+
+            .contact-item:hover {
+                opacity: 0.8;
+                text-decoration: underline;
+                text-underline-offset: 6px;
+            }
+        }
+
+        /* --- PORTRAIT VIEW (PHONES) --- */
         @media (max-width: 500px), (max-width: 950px) and (orientation: portrait) {
             .business-card {
                 flex-direction: column;
@@ -149,7 +165,7 @@
             .social-link svg { width: 32px; height: 32px; }
         }
 
-        /* --- LANDSCAPE MOBILE VIEW - UNCHANGED --- */
+        /* --- LANDSCAPE MOBILE VIEW --- */
         @media (max-height: 500px) and (orientation: landscape) {
             .card-info { 
                 padding: 20px 40px 25px 40px; 
