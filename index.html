@@ -20,6 +20,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- ANIMATION KEYFRAMES --- */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(1.02) translateY(20px); filter: blur(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        }
+
+        @keyframes contentFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bgFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         html, body {
             height: 100%;
             width: 100%;
@@ -27,6 +43,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            overflow: hidden; /* Prevents scrollbars during animation */
         }
 
         body {
@@ -40,6 +57,7 @@
             justify-content: center;
             font-family: 'Arimo', sans-serif;
             padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            animation: bgFade 1.5s ease forwards;
         }
 
         .business-card {
@@ -53,6 +71,10 @@
             box-shadow: 0 45px 90px rgba(0,0,0,0.5);
             overflow: hidden;
             border: none;
+            /* Entrance Animation */
+            opacity: 0;
+            animation: fadeInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.2s;
         }
 
         .card-logo {
@@ -62,6 +84,10 @@
             align-items: center;
             justify-content: center;
             padding: 60px;
+            /* Staggered Content Animation */
+            opacity: 0;
+            animation: contentFadeIn 1s ease forwards;
+            animation-delay: 0.6s;
         }
 
         .card-logo img {
@@ -78,6 +104,10 @@
             flex-direction: column;
             justify-content: flex-end; 
             align-items: flex-start; 
+            /* Staggered Content Animation */
+            opacity: 0;
+            animation: contentFadeIn 1s ease forwards;
+            animation-delay: 0.8s;
         }
 
         .info-content-block {
@@ -103,7 +133,7 @@
             display: flex; 
             align-items: center;
             gap: 18px;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
             outline: none;
         }
 
@@ -135,7 +165,7 @@
             transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
         }
 
-        /* Keyboard Accessibility - Highlight on Tab */
+        /* Keyboard Accessibility */
         .contact-item:focus-visible, .social-link:focus-visible {
             outline: 2px solid white;
             outline-offset: 4px;
@@ -150,12 +180,11 @@
             }
             .contact-item:hover {
                 opacity: 0.8;
-                text-decoration: underline;
-                text-underline-offset: 6px;
+                transform: translateX(5px);
             }
         }
 
-        /* --- PORTRAIT VIEW (PHONES) --- */
+        /* --- MOBILE ADAPTATIONS --- */
         @media (max-width: 500px), (max-width: 950px) and (orientation: portrait) {
             .business-card { flex-direction: column; width: 100%; max-width: 380px; border-radius: 24px; }
             .card-logo { padding: 30px 20px 10px 20px; }
@@ -168,7 +197,6 @@
             .social-link svg { width: 32px; height: 32px; }
         }
 
-        /* --- LANDSCAPE MOBILE VIEW --- */
         @media (max-height: 500px) and (orientation: landscape) {
             .card-info { padding: 20px 40px 25px 40px; justify-content: flex-end; }
             .card-logo { padding: 20px; }
@@ -184,7 +212,7 @@
 </head>
 <body>
 
-    <main class="business-card">
+    <main class="business-card" role="main">
         <div class="card-logo">
             <img src="logo.png" alt="Salinon Art Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='<h1 style=\'color:white; opacity:0.3; font-size:4em;\'>SALINON</h1>'">
         </div>
